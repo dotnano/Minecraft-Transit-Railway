@@ -2,9 +2,9 @@ package mtr.packet;
 
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import de.bluecolored.bluemap.api.BlueMapMap;
+import de.bluecolored.bluemap.api.markers.ExtrudeMarker;
 import de.bluecolored.bluemap.api.markers.MarkerSet;
 import de.bluecolored.bluemap.api.markers.POIMarker;
-import de.bluecolored.bluemap.api.markers.ShapeMarker;
 import de.bluecolored.bluemap.api.math.Color;
 import de.bluecolored.bluemap.api.math.Shape;
 import mtr.data.AreaBase;
@@ -48,15 +48,15 @@ public class UpdateBlueMap implements IGui, IUpdateWebMap {
 		map.getMarkerSets().put(areaAreasId, markerSetAreaAreas);
 
 		IUpdateWebMap.iterateAreas(areas, (id, name, color, areaCorner1X, areaCorner1Z, areaCorner2X, areaCorner2Z, areaX, areaZ) -> {
-			final POIMarker markerArea = POIMarker.toBuilder()
-					.position(areaX, areaY, areaZ)
+			final POIMarker markerArea = POIMarker.builder()
+					.position((double) areaX, (double) areaY, (double) areaZ)
 					.label(name)
 					.icon(iconKey, ICON_SIZE / 2, ICON_SIZE / 2)
 					.build();
 			markerSetAreas.getMarkers().put("1_" + worldId + id, markerArea);
-			final ShapeMarker markerAreaArea = ShapeMarker.builder()
-					.position(areaX, areaY, areaZ)
-					.shape(Shape.createRect(areaCorner1X, areaCorner1Z, areaCorner2X, areaCorner2Z), areaY)
+			final ExtrudeMarker markerAreaArea = ExtrudeMarker.builder()
+					.position((double) areaX, (double) areaY, (double) areaZ)
+					.shape(Shape.createRect((double) areaCorner1X, (double) areaCorner1Z, (double) areaCorner2X, (double) areaCorner2Z), -64, 319)
 					.label(name)
 					.fillColor(new Color(color.getRGB() & RGB_WHITE, 0.5F))
 					.lineColor(new Color(color.darker().getRGB()))
