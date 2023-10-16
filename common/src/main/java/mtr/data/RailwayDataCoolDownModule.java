@@ -61,6 +61,7 @@ public class RailwayDataCoolDownModule extends RailwayDataModuleBase {
 			if (coolDown <= 0) {
 				updatePlayerRiding(player, 0);
 				playersToRemove.add(player);
+				System.out.println(player.getRootVehicle());
 				player.stopRiding();
 			}
 			playerRidingCoolDown.put(player, coolDown - 1);
