@@ -1,6 +1,7 @@
 package mtr.data;
 
 import mtr.Registry;
+import mtr.entity.EntityBase;
 import mtr.entity.EntitySeat;
 import mtr.mappings.Utilities;
 import net.minecraft.core.BlockPos;
@@ -61,7 +62,9 @@ public class RailwayDataCoolDownModule extends RailwayDataModuleBase {
 			if (coolDown <= 0) {
 				updatePlayerRiding(player, 0);
 				playersToRemove.add(player);
-				player.stopRiding();
+				if (player.getVehicle() instanceof EntityBase) {
+					player.stopRiding();
+				}
 			}
 			playerRidingCoolDown.put(player, coolDown - 1);
 		});
