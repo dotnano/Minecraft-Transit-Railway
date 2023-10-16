@@ -713,7 +713,7 @@ public abstract class Train extends NameColorDataBase implements IPacket {
 	}
 
 	public static RailType convertMaxManualSpeed(int maxManualSpeed) {
-		if (maxManualSpeed >= 0 && maxManualSpeed <= RailType.DIAMOND.ordinal()) {
+		if (maxManualSpeed >= 0 && maxManualSpeed <= RailType.BARRIER.ordinal()) {
 			return RailType.values()[maxManualSpeed];
 		} else {
 			return null;

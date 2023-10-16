@@ -72,7 +72,7 @@ public class SidingScreen extends SavedRailScreenBase<Siding> implements Icons {
 			}
 			setIsSelectingTrain(false);
 		});
-		sliderMaxManualSpeed = new WidgetShorterSlider(0, MAX_TRAINS_WIDTH, RailType.DIAMOND.ordinal(), this::speedSliderFormatter, null);
+		sliderMaxManualSpeed = new WidgetShorterSlider(0, MAX_TRAINS_WIDTH, RailType.BARRIER.ordinal(), this::speedSliderFormatter, null);
 		buttonUnlimitedTrains = new WidgetBetterCheckbox(0, 0, 0, SQUARE_SIZE, Text.translatable("gui.mtr.unlimited_vehicles"), checked -> {
 			if (checked) {
 				buttonIsManual.setChecked(false);
