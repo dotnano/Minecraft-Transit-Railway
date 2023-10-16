@@ -1,6 +1,7 @@
 package mtr.data;
 
 import mtr.Registry;
+import mtr.entity.EntityBase;
 import mtr.entity.EntitySeat;
 import mtr.mappings.Utilities;
 import net.minecraft.core.BlockPos;
